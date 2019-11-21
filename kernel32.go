@@ -16,9 +16,6 @@ var (
 	procCreateMutex        = modkernel32.NewProc("CreateMutexW")
 )
 
-func Call(name string, parm ...uintptr) (r1, r2 uintptr, err error) {
-	return modkernel32.NewProc(name).Call(parm...)
-}
 func GetModuleHandle(modulename string) syscall.Handle {
 	var mn uintptr
 	if modulename == "" {
